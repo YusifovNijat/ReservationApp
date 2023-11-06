@@ -1,0 +1,32 @@
+.reserv-item svg {
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+.reserv-item {
+    position: relative;
+    border: none;
+}
+
+.trash {
+    color: #dd0a35;
+    cursor: pointer;
+}
+
+.pen {
+    color: #2e79ba;
+}
+
+@media (max-width: 700px){
+    .reserv-item li {
+        font-size: 8px;
+    }
+
+
+    .reserv-item li svg {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+  }
+
+    

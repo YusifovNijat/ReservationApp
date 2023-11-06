@@ -1,0 +1,126 @@
+.reserv-form h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form {
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+input {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 30%;
+    padding: 5px 0;
+    font-size: 14px;
+    outline: none;
+}
+
+.date {
+    width: 40%;
+    margin-left: 10px;
+}
+
+.price {
+    margin-top: 40px;
+}
+
+.date input {
+    width: 100%;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.react-datepicker__input-container {
+    width: 100px !important;
+}
+
+.date-container {
+    width: 70%;
+    display: flex;
+    margin: 40px 0;
+}
+
+label {
+    color: #668ba4;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+select {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 5px 0;
+    width: 100px;
+    margin-bottom: 40px;
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    width: 200px;
+    margin: 20px auto;
+    justify-content: space-around;
+}
+
+a {
+    width: 50%;
+}
+
+.submit {
+    background-color: #42b883;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: #dd0a35;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    
+
+}
+
+span {
+    display: block;
+    margin-top: 5px;
+    color: #dd0a35;
+}
+
+span .error-dt {
+    width: 300px;
+    margin-top: 0px;
+}
+
+.date input {
+    text-align: center;
+}
+
+@media (max-width: 700px){
+    .date-container {
+        display: block;
+    }
+    .date {
+        display: flex;
+        margin: 10px 0;
+    }
+  }
+
+  @media (min-width: 701px){
+    .date-container {
+        width: 600px;
+    }
+  }

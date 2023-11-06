@@ -1,0 +1,27 @@
+.App {
+    width: 80%;
+    height: 90vh;
+    margin: 5% auto;
+}
+
+.App h1 {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.App .add {
+    font-size: 30px;
+    cursor: pointer;
+    color: #42b883;
+}
+
+@media (max-width: 700px){
+  .App h1 {
+    font-size: 26px;
+  }
+
+  .App .add {
+    font-size: 26px;
+  }
+}
+
