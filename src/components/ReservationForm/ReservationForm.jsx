@@ -22,7 +22,7 @@ function ReservationForm() {
     const [dateError, setDateError] = useState('');
 
     const saveReservation = () => {
-        fetch("https://app-nijat78-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/",
+        fetch(process.env.REACT_APP_API_KEY,
         {
             method: "POST",
             headers: {

@@ -11,7 +11,7 @@ function ReservationItem({onDelete, hotelName, arrival, departure, type, guests,
   
   const handleDelete = () => {
 
-    fetch(`https://app-nijat78-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/${id}`, {
+    fetch(`${process.env.REACT_APP_API_KEY}${id}`, {
       method: 'DELETE',
     })
       .then((response) => {

@@ -7,6 +7,26 @@ import '../ReservationForm/ReservationForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 
+// Custom date parsing function for the expected date format
+function parseCustomDate(dateString) {
+  if (!dateString) {
+    return null; // Handle undefined date string
+  }
+
+  const dateParts = dateString.split('-');
+  if (dateParts.length === 3) {
+    const year = parseInt(dateParts[0]);
+    const month = parseInt(dateParts[1]) - 1; // JavaScript months are 0-based
+    const day = parseInt(dateParts[2]);
+
+    if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
+      return new Date(year, month, day);
+    }
+  }
+
+  return null; // Handle invalid date format
+}
+
 function EditReservation() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -26,17 +46,24 @@ function EditReservation() {
   });
 
   useEffect(() => {
-    fetch(`https://app-nijat78-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/${id}`)
+    fetch(`${process.env.REACT_APP_API_KEY}${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setReservation({
-          arrival: new Date(data.arrival),
-          departure: new Date(data.departure),
-          hotel_name: data.hotel_name,
-          price: data.price,
-          guestsNumber: data.guestsNumber,
-          typeOfRoom: data.typeOfRoom,
-        });
+        const arrivalDate = parseCustomDate(data.arrival);
+        const departureDate = parseCustomDate(data.departure);
+
+        if (arrivalDate && departureDate) {
+          setReservation({
+            arrival: arrivalDate,
+            departure: departureDate,
+            hotel_name: data.hotel_name,
+            price: data.price,
+            guestsNumber: data.guestsNumber,
+            typeOfRoom: data.typeOfRoom,
+          });
+        } else {
+          console.error('Invalid date format in API response');
+        }
       })
       .catch((error) => console.error('Error fetching reservation details:', error));
   }, [id]);
@@ -44,7 +71,6 @@ function EditReservation() {
   const handleChange = (e) => {
     e.preventDefault();
     clearValidationErrors();
-
     const { name, value } = e.target;
 
     setReservation({
@@ -100,8 +126,7 @@ function EditReservation() {
       return;
     }
 
-   
-    fetch(`https://app-nijat78-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/${id}`, {
+    fetch(`${process.env.REACT_APP_API_KEY}${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -215,5 +240,3 @@ function EditReservation() {
 }
 
 export default EditReservation;
-
-

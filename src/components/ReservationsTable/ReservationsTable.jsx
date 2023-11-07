@@ -14,7 +14,7 @@ function ReservationsTable() {
   };
 
   useEffect(()=>{
-    fetch("https://app-nijat78-dev.apps.sandbox-m3.1530.p1.openshiftapps.com/")
+    fetch(process.env.REACT_APP_API_KEY)
     .then(res=>res.json())
     .then((result)=>{
       console.log(result);
@@ -41,4 +41,4 @@ function ReservationsTable() {
   }
 }
 
-export default ReservationsTable
+export default ReservationsTable;

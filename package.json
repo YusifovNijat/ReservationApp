@@ -1,5 +1,4 @@
 {
-  "homepage": "http://yusifovnijat.github.io/ReservationApp",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +12,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "date-fns": "^2.30.0",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
