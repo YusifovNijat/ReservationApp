@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ReservationItem from '../ReservationItem/ReservationItem'
 import './ReservationsTable.css'
+import RingLoader from 'react-spinners/RingLoader';
 
 function ReservationsTable() {
 
@@ -29,7 +30,9 @@ function ReservationsTable() {
   if(error){
     return <div>Error!!!</div>;
   } else if(!isLoaded){
-    return <div>Loading...</div>
+    return       <RingLoader
+    color="#000"
+  />
   } else {
     return (
       <div className="reserv-table">

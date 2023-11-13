@@ -111,13 +111,13 @@ function EditReservation() {
 
     const priceValue = parseFloat(reservation.price);
     if (isNaN(priceValue) || priceValue <= 0) {
-      setPriceError('Price must be a positive number.');
+      setPriceError('Guests number cannot be empty or zero.');
       return;
     }
 
     const guestsValue = parseInt(reservation.guestsNumber, 10);
     if (isNaN(guestsValue) || guestsValue <= 0) {
-      setGuestsError('Guests must be a positive number.');
+      setGuestsError('Guests number cannot be empty or zero.');
       return;
     }
 

@@ -50,13 +50,13 @@ function ReservationForm() {
             return;
           }
       
-          if (!price.trim()) {
-            setPriceError('Price cannot be empty.');
+          if (!price.trim() || price === "0") {
+            setPriceError('Price cannot be empty or zero.');
             return;
           }
       
-          if (!guests.trim()) {
-            setGuestsError('Guests number cannot be empty.');
+          if (!guests.trim() || guests === "0") {
+            setGuestsError('Guests number cannot be empty or zero.');
             return;
           }
       
